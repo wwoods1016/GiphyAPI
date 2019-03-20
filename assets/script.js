@@ -1,9 +1,9 @@
 $(document).ready(function () {
 
-
+    // Array of buttons displayed on page before additional buttons are added
     var playerArray = ["LeBron James", "Kevin Durant", "Stephen Curry", "Giannis Antetokounmpo", "James Harden", "Trae Young"]
 
-
+    // Function displays a button on the DOM for every item within the array of players
     function renderButtons() {
 
 
@@ -25,6 +25,7 @@ $(document).ready(function () {
         }
     }
 
+    // Function that will push a new item into the array when form is filled and button is clicked
     $("#add-player").on("click", function (event) {
 
         event.preventDefault();
@@ -37,6 +38,7 @@ $(document).ready(function () {
 
     });
 
+    // On click will pull images from the Gihpy API and put them onto the page to the limit of 8 items
     $(document).on("click", ".nbaPlayers", function () {
 
         var baller = $(this).attr("data-name");
@@ -59,13 +61,13 @@ $(document).ready(function () {
 
                 for (var i = 0; i < results.length; i++) {
 
-
+                    // Adds a div with the class of picture
                     var ballerDiv = $("<div class='picture'>");
 
-
+                    // Adds a <p> tag with the rating of gif
                     var p = $("<p>").text("Rating: " + results[i].rating);
 
-
+                    // Will add <img> tag and information for the src image and the still and animated objects from API
                     var playerImage = $("<img>");
 
                     playerImage.attr("src", results[i].images.fixed_height_still.url);
@@ -86,6 +88,7 @@ $(document).ready(function () {
             });
     });
 
+    // If clicked, animated unless already animated. In that case will make still.
     $(document).on("click", "img", function () {
 
         var state = $(this).attr("data-state");

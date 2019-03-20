@@ -1,3 +1,4 @@
+/* HTML, body and .grid-container CSS to force footer to bottom of page */
 html {
     position: relative;
     height: 100%;
@@ -19,6 +20,7 @@ form {
     margin: 10px, auto;
 }
 
+/* newGif ID set as grid as well because it is the grandchild of grid container */
 #newGif {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -29,6 +31,7 @@ form {
     min-height: 100%;
 }
 
+/* Displayed as table-cell to force equal spacing across its container */
 img {
     display: table-cell;
     height: 180px;
@@ -38,10 +41,12 @@ img {
     margin: 0 auto;
 }
 
+/* To make rating text center above image */
 p {
     text-align: center;
 }
 
+/* Color taken from NBA logo, box-shadow makes button look as if it is being pressed like a physical button */
 button, #add-player {
     background-color: #17408B;
     color: #fff;
@@ -73,6 +78,7 @@ button:hover, #add-player:hover {
     margin: 5px auto;
 }
 
+/* Footer icons */
 .fab {
     color: #17408B;
 }
@@ -88,12 +94,11 @@ footer {
     bottom: 0;
 }
 
-
 /* Media Queries */
-
 @media only screen and (max-width: 1000px) {
 #newGif {
     display: grid;
+    /* Moves from 4 to 3 columns as screen is < 1000px */
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     max-width: 200px;
@@ -104,6 +109,7 @@ footer {
 @media only screen and (max-width: 700px) {
 #newGif {
     display: grid;
+    /* Moves from 3 to 2 columns as screen is < 700px */
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     max-width: 200px;
@@ -114,6 +120,7 @@ footer {
 @media only screen and (max-width: 300px) {
 #newGif {
     display: grid;
+    /* Moves from 2 to 1 column in case page is viewed on small device */
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     max-width: 200px;
